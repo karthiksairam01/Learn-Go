@@ -16,7 +16,10 @@
 ### Biggest drawback of arrays
 
 > Go considers size of the array to be part of the type of the array
+>
 > Hence [3]int and [4]int are different types, not the same *array* type as you might think
+>
 > Hence cant use variable to specify size of array, because types are resolved at compiletime
+>
 > There's no option to change all of them to identical types, hence you can't write functions that works with array of any size. (WHA- ?) 
 
