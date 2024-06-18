@@ -39,7 +39,8 @@
 ### append()
 
 - takes 2 params, slice and value(s). slice type and value type must be same
-- it returns a slice of that type, hence needs to be initalized to a variable. remeber to always initalize, otherwise compile-time error 😄
+- it returns a slice of that type, hence needs to be initalized to a variable. 
+- remember to always initalize, otherwise compile-time error 😄 It's because go uses call-by-value, which means it makes a copy every time something is passed as a parameter, hence after making the copy it needs to reassign it to a var right? that's why it always needs to initialized
 
 ```
 var x []int
@@ -58,4 +59,33 @@ y := []int{1,2,3}
 x = append(x, y...)
 ```
 
+### cap(), the Capacity in go
+
+- cap function allows you to see the capacity of a slice. it means how much you can append until the compiler actually copies all your old slice data, renames it and gives it more space. old slice is garbage collected. not used much, but good to know that there exists a cap in memory for slices, its not infinite (obviously)
+
+```
+cap(x)
+```
+
+### make()
+
+- If you do know the size of a slice beforehand, its better to use ```make()``` because there is an overhead that comes with automtically growing the slice by appending.
+
+- this is also the only way to initialize a slice that has a fixed size to it (remember from slices introduction that the syntax should not have the size, otherwise it becomes an array declaration)
+
+```
+p := make([]int, 10)
+```
+
+- note that length and capacity are set to the number that you give in make(), this means that the slice is not empty, its initialized to its null value, which is 0 for all int literals
+
+- Hence, **don't append** to make() slices, because they are not empty slices. 
+
+- **But**, make() also takes one param in the middle for its initial length. If you make that 0, then it means your slice is empty, has capacity 10. You **can** append to this safely.
+
+```
+x := make([]int, 0, 10)
+```
+
+Check lines 52-60 in [main.go](./main.go) to see the working example.
 
