@@ -3,14 +3,46 @@
 ## Arrays
 
 - rarely used directly (apparently)
-- ```var x [3]int``` creates array of 3 ints, all init to 0
-- ```var x = [3]int{10, 20, 30}``` is an array literal
-- If you ahve a sparse array and only want to populate certain indices then specify their indices like ```var x = [12]int{1, 5: 4, 6, 10:100, 15}``` this works like a pointer-based framework
-- you don't have to specify the array size if you are initializing an array literal like this ```var x = [...]int{10, 20}```
+
+```go
+var x [3]int
+
+//creates array of 3 ints, all init to 0
+``` 
+
+```go
+var x = [3]int{10, 20, 30}
+
+//is an array literal
+``` 
+- If you ahve a sparse array and only want to populate certain indices then specify their indices like below code, which works like a pointer-based framework
+
+```go
+var x = [12]int{1, 5: 4, 6, 10:100, 15}
+```
+
+- you don't have to specify the array size if you are initializing an array literal like : 
+
+```go
+var x = [...]int{10, 20}
+```
+
 - arrays can be compared 
-- you can make 2D arrays ```var x [2][3]int``` means array of length 2, whose elements are of type array of ints of length 3. Go does not support matrices
-- read and write to/from array by normal bracket notation ```x[0] = 10``` 
-- no negative indices (like Python), 
+
+- you can make 2D arrays. below code means array of length 2, whose elements are of type array of ints of length 3. Go does not support matrices
+
+```go
+var x [2][3]int
+```
+
+- read and write to/from array by normal bracket notation 
+
+```go
+x[0] = 10
+``` 
+
+- no negative indices (like Python)
+
 - len() takes array and returns size
 
 ### Biggest drawback of arrays
@@ -30,7 +62,12 @@
 - When you think of using an array in any other lang, use slice in Go. Basically, for a sequence of vals
 - Obviously, length is not a part of the type for a slice
 - we can grow them, iterate through them etc normally
-- You **don't** specify the size for a slice when you declare them such as ```var x = []int{10,20,30}```. The subtle difference is that ```[...]``` is an array and ```[]``` is a slice. Hence. the above is a slice literal.
+- You **don't** specify the size for a slice when you declare them such as 
+
+```go
+var x = []int{10,20,30}
+```
+- The subtle difference is that ```[...]``` is an array and ```[]``` is a slice. Hence. the above is a slice literal.
 - Same rules apply for specifying sparse and multidimensional slices, reading and writing from a slice; as an array.
 - ```var x []int``` is an empty slices initialized to the value ```nil```, that is its zero value. nil represents lack of value, has no type 
 - slices cannot be compared, you can only compare a slice with nil, nothing else. not another slice, not an int etc.
