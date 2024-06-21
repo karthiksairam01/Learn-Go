@@ -42,7 +42,7 @@
 - it returns a slice of that type, hence needs to be initalized to a variable. 
 - remember to always initalize, otherwise compile-time error 😄 It's because go uses call-by-value, which means it makes a copy every time something is passed as a parameter, hence after making the copy it needs to reassign it to a var right? that's why it always needs to initialized
 
-```
+```go
 var x []int
 x = append(x, 10)
 
@@ -54,7 +54,7 @@ x = append(x, 6, 7, 8, 9)
 
 - you can also append another slice to a slice, first you need to unroll it using ```...``` like 
 
-```
+```go
 y := []int{1,2,3}
 x = append(x, y...)
 ```
@@ -63,7 +63,7 @@ x = append(x, y...)
 
 - cap function allows you to see the capacity of a slice. it means how much you can append until the compiler actually copies all your old slice data, renames it and gives it more space. old slice is garbage collected. not used much, but good to know that there exists a cap in memory for slices, its not infinite (obviously)
 
-```
+```go
 cap(x)
 ```
 
@@ -73,7 +73,7 @@ cap(x)
 
 - this is also the only way to initialize a slice that has a fixed size to it (remember from slices introduction that the syntax should not have the size, otherwise it becomes an array declaration)
 
-```
+```go
 p := make([]int, 10)
 ```
 
@@ -83,7 +83,7 @@ p := make([]int, 10)
 
 - **But**, make() also takes one param in the middle for its initial length. If you make that 0, then it means your slice is empty, has capacity 10. You **can** append to this safely.
 
-```
+```go
 x := make([]int, 0, 10)
 ```
 
@@ -91,7 +91,7 @@ Check lines 52-60 in [main.go](./main.go) to see the working example.
 
 ### Slicing Slices
 
-```
+```go
 x := []int{1, 2, 3, 4}
 y := x[:2]
 z := x[1:]
@@ -102,7 +102,7 @@ z := x[1:]
 - Hence, refrain from taking slice of a slice or modifying a slice of a slice.
 
 - To prevent the above, you can use a three part slice such as:
-```
+```go
 y := x[:2:2]
 ```
 
@@ -114,7 +114,7 @@ y := x[:2:2]
 
 - They can be sliced too, but remember rhat when you're slicing something like an emoji (which is not in the English language) and since strings are stored as bytes, your slicing might not really work because one emoji can be represented as multiple bytes
 
-```
+```go
 var s string = "Hello"
 var s2 string = s[2:4] 
 ```
@@ -123,7 +123,7 @@ var s2 string = s[2:4]
 
 - Remember that byte is the most common storage mechanism in Go
 
-```
+```go
 var a rune = 'x'
 var s string = string(a)
 
@@ -135,7 +135,7 @@ var s2 string = string(b)
 
 - You can also convert strings to slices like this: (remember that you always convert these character types to bytes, hence slice of bytes are very common, not slice of runes or slice of strings since strings are immutable)
 
-```
+```go
 var s string = "Hello"
 var bs []byte = []byte(s)
 var rs []rune = []rune(s)
@@ -155,7 +155,7 @@ Output:
 
 - To declare one:
 
-```
+```go
 //a nil map, cant write to it (apparently causes panic?)
 var mymap map[string]int 
 
@@ -198,7 +198,7 @@ mymap := map[string]int{
 
 - if a value is not set for a key, its set to that data type's zero value (0 for int)
 
-```
+```go
 mymap := map[string]int{}
 mymap["karthik"] = 15
 ```
@@ -209,7 +209,7 @@ mymap["karthik"] = 15
 
 - you assign the results of a map read to 2 variables, first gets the value associated with the key and second is a bool. if ```ok``` is true then key is present in map, otherwise no.
 
-```
+```go
 m := map[string]int{
 
     "hello" : 5,
