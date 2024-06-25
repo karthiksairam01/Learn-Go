@@ -180,3 +180,113 @@ for k, v := range m {
 
 ### Labeling for statements 
 
+- In nested for loops, if you want toskip over an outer loop, see below:
+
+```go
+func main() {
+
+    samples := []string{"hello", "world"}
+
+outer:
+
+    for _, sample := range samples {
+
+        for i, r := range sample {
+
+            fmt.Println(i, r, string(r))
+
+            if r == 'l' { //if current letter is l then stop curr word and go to next word you can also say if r = 108. 
+
+                continue outer
+            }
+        }
+
+        fmt.Println()
+    }
+}
+
+// output:
+
+// 0 104 h
+// 1 101 e
+// 2 108 l
+// 0 119 w
+// 1 111 o
+// 2 114 r
+// 3 108 l
+```
+
+- Always indent the labels with the same level as the braces for the block it is in,
+
+### Miscellaneuous about for loop
+
+- For strings, its safer to use for-range style since standard style does not handle multibye characters
+
+## Switch statement
+
+- ```switch``` it actually useful in Go, unlike in other languages
+
+- They look similar to other langauges' switch but:
+
+    - NO paranthesis around switch value
+    - Dont use ```{}``` around the contents of each case
+    - No need to put break after every case ends (although you can, its already implemented by default)
+    - If there are multiple matches, just bundle them up in a group with the ```case``` keyword
+    - If you dont want anything to happen for some switch values, just mention them and leave them blank in the ```case```
+    - You can also use ```default``` to show default case.
+    - An idiomatic way to approach switch is to try avoiding the use of break after some/all cases. 
+    > If you're using break, that means your code can be refactored to not use it.
+
+```go
+
+words := []string{"a", "cow", "smile", "gopher",
+    "octopus", "anthropologist"}
+for _, word := range words {
+    switch size := len(word); size {
+    case 1, 2, 3, 4:
+        fmt.Println(word, "is a short word!")
+    case 5:
+        wordLen := len(word)
+        fmt.Println(word, "is exactly the right length:", wordLen)
+    case 6, 7, 8, 9:
+    default:
+        fmt.Println(word, "is a long word!")
+    }
+}
+```
+
+### Blank Switch
+
+- Regular switch allows you to check value for equality
+
+- But blank switch allows you to use any booleane xpression for each case
+
+```go
+words := []string{"hi", "salutations", "hello"}
+for _, word := range words {
+    switch wordLen := len(word); {
+    case wordLen < 5:
+        fmt.Println(word, "is a short word!")
+    case wordLen > 10:
+        fmt.Println(word, "is a long word!")
+    default:
+        fmt.Println(word, "is exactly the right length.")
+    }
+}
+```
+
+## Goto statement
+
+- You will never use it
+
+- Try very hard to not use it
+
+- You can't jump anywhere with it, can't jump over:
+
+    - var decalarations
+    - jumps that go inside a block, or a parallel block
+
+
+# Extras
+
+- To find the type of a variable, just use the ```%T``` format specifier in ```fmt.Printf()```
