@@ -119,7 +119,7 @@ for {
 }
 ```
 
-### For-range style
+### 4. For-range style
 
 - Iterates over some composite types like slices, maps etc.
 
