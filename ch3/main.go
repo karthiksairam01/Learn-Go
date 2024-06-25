@@ -58,4 +58,27 @@ func main() {
 	q = append(q, 5, 4, 6)
 	fmt.Println(q, len(q), cap(q))
 
+	fmt.Println("------Testing question 1------")
+
+	q1()
+
+}
+
+func q1() {
+
+	type Book struct {
+		Title  string
+		Author string
+		Pages  int
+	}
+
+	newbook := Book{
+
+		Title:  "Learning Go",
+		Author: "Jon Bodner",
+		Pages:  500,
+	}
+
+	fmt.Printf("The title of the book is: %s whose author is %s having %d pages", newbook.Title, newbook.Author, newbook.Pages)
+
 }
