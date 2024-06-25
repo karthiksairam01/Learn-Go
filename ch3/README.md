@@ -270,3 +270,108 @@ fmt.printLn(v, ok)
 0 false
 ```
 
+### deleting
+
+- use del(<map_name>, key)
+
+- doesn't return anything
+
+## Sets
+
+- No sets in Go, use maps as sets
+
+- Use:
+
+    - key: type you want to use in set
+    - value: bool
+
+```go
+mySet := map[int]bool{}
+
+vals := []int{1,2,2,3,4,4,4,5,1}
+
+for _, v := range vals {
+
+    mySet[v] = true
+}
+```
+
+## Structs
+
+- User defined data type, to group together related data
+
+```go
+
+type person struct {
+
+    name string
+    age int
+    pet string
+
+}
+
+var fred person //or fred := person
+
+// method 1 to assign values (need to specify all vals)
+
+julia := person{
+
+    "Julia",
+    40,
+    "cat",
+}
+
+// method 2 
+
+julia := person{
+
+    age: 30,
+    name: "Julia",
+}
+
+julia.pet = "dog"
+fmt.printLn(julia.age)
+
+```
+
+- syntax is given above, no commas
+
+- dont mix methods 1 and 2
+
+- method 2 is mostly always better for code compatibility, if someone adds new vars to person, then method 1 will not compile
+
+
+### Anonymous structs
+
+- useful when:
+    - converting struct to/from external data (JSON)
+    - writing tests
+
+```go
+
+var person struct{
+
+    age int
+    name string
+    pet string
+
+}
+
+person.name = "karthik"
+person.age = "22"
+person.pet = "N/A"
+
+```
+
+### Miscellaneuous
+
+- Don't compare structs generally.
+
+- you can only compare 2 structs of the same var type, var names and var orders
+
+- you **can** compare two anonymous structs which have same type, order and names of vars.
+
+## Wrapping Up
+
+- There are a LOT of small quirks about Go, and this was a very comprehensive list for the same. Don't hesitate to keep looking back to this.
+
