@@ -1,4 +1,11 @@
 # Learning Thoughts
+- [Learning Thoughts](#learning-thoughts)
+  - [Operators on int](#operators-on-int)
+  - [Explicit type conversion](#explicit-type-conversion)
+  - [Variables](#variables)
+    - [Short Declaration Format](#short-declaration-format)
+  - [const](#const)
+  - [Unused Variables](#unused-variables)
 
 > The word idiomatic keeps popping up, I don't know what that means in the current context
 
@@ -31,7 +38,7 @@
         - immutable, meaning can reassign but cannot change value of str once assigned to it
 
 
-## Operators on int:
+## Operators on int
 
 - same +, -, *, / and % for modulus
 - dont divide by 0
@@ -85,7 +92,14 @@ var (
 
 ```
 x := 10
-x, y := 30, "hello"
+x, y := 30, "hello"- [Learning Thoughts](#learning-thoughts)
+  - [Operators on int:](#operators-on-int)
+  - [Explicit type conversion](#explicit-type-conversion)
+  - [Variables](#variables)
+    - [Short Declaration Format](#short-declaration-format)
+  - [const](#const)
+  - [Unused Variables](#unused-variables)
+
 ```
 
 - Use ```:=``` only inside functions, its not legal to otherwise. But you dont need to declare vars outside functions mostly anyway.

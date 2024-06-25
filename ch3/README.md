@@ -1,5 +1,26 @@
 # Composite Types
 
+- [Composite Types](#composite-types)
+  - [Arrays](#arrays)
+    - [Biggest drawback of arrays](#biggest-drawback-of-arrays)
+  - [Slices](#slices)
+    - [append()](#append)
+    - [cap(), the Capacity in go](#cap-the-capacity-in-go)
+    - [make()](#make)
+    - [Slicing Slices](#slicing-slices)
+  - [Strings and Runes](#strings-and-runes)
+    - [Conversions among rune, byte and string](#conversions-among-rune-byte-and-string)
+  - [Maps](#maps)
+    - [Hash Maps](#hash-maps)
+    - [r/w into maps](#rw-into-maps)
+    - [comma ok idiom](#comma-ok-idiom)
+    - [deleting](#deleting)
+  - [Sets](#sets)
+  - [Structs](#structs)
+    - [Anonymous structs](#anonymous-structs)
+    - [Miscellaneuous](#miscellaneuous)
+  - [Wrapping Up](#wrapping-up)
+
 ## Arrays
 
 - rarely used directly (apparently)

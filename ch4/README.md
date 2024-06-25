@@ -1,5 +1,25 @@
 # Control Structures
 
+- [Control Structures](#control-structures)
+  - [Blocks](#blocks)
+    - [Shadowing](#shadowing)
+    - [Universal Block](#universal-block)
+  - [If statement](#if-statement)
+  - [For statement](#for-statement)
+    - [1. Complete style](#1-complete-style)
+    - [2. Condition-only style](#2-condition-only-style)
+    - [3. Infinite style](#3-infinite-style)
+    - [4. For-range style](#4-for-range-style)
+    - [Break and continue statements](#break-and-continue-statements)
+    - [Labeling for statements](#labeling-for-statements)
+    - [Miscellaneuous about for loop](#miscellaneuous-about-for-loop)
+  - [Switch statement](#switch-statement)
+    - [Blank Switch](#blank-switch)
+  - [Goto statement](#goto-statement)
+- [Extras](#extras)
+
+
+
 ## Blocks
 
 - It is any place where declaration occurs
