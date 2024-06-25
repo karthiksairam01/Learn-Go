@@ -79,6 +79,22 @@ func q1() {
 		Pages:  500,
 	}
 
-	fmt.Printf("The title of the book is: %s whose author is %s having %d pages", newbook.Title, newbook.Author, newbook.Pages)
+	fmt.Printf("The title of the book is: %s whose author is %s having %d pages! \n", newbook.Title, newbook.Author, newbook.Pages)
+
+	type Library struct {
+		Books []Book
+	}
+
+	newlib := Library{}
+
+	fmt.Printf("Library before adding books: %v \n", newlib)
+
+	book1 := Book{"The Go Programming Language", "Alan A. A. Donovan", 380}
+	book2 := Book{"Learning Go", "Jon Bodner", 300}
+
+	newlib.Books = append(newlib.Books, book1)
+	newlib.Books = append(newlib.Books, book2)
+
+	fmt.Printf("Library after adding books: %v \n", newlib)
 
 }
