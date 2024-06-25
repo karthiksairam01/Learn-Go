@@ -290,3 +290,5 @@ for _, word := range words {
 # Extras
 
 - To find the type of a variable, just use the ```%T``` format specifier in ```fmt.Printf()```
+
+- The format specifier for boolean values is ```%t```
