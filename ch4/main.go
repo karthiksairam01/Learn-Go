@@ -34,6 +34,14 @@ func shadow2() {
 
 }
 
+func infinite() {
+
+	for {
+
+		fmt.Println("Hello")
+	}
+}
+
 func main() {
 
 	fmt.Println("With shadow:")
@@ -41,5 +49,7 @@ func main() {
 
 	fmt.Println("With shadow2:")
 	shadow2()
+
+	// infinite()
 
 }
