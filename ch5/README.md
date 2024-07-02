@@ -7,6 +7,7 @@
 - Starting point of every Go program
 - Has no params or return vals
 
+
 ## ```func()```
 
 - Basically looks like this:
